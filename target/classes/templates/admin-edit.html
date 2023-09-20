@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение данных</title>
+</head>
+<body>
+<div class="page">
+    <div th:if="${modelName == 'course'}">
+        <form th:action="@{'/edit/course/' + ${modelObject.id}}" method="post" th:object="${modelObject}">
+        <input type="hidden" th:name="modelName" th:value="${modelName}" />
+            <input type="hidden" th:name="id" name="id" th:value="${modelObject.id}" />
+            <div class="_container">
+                <div class="_subtitle">Курс:</div>
+                <label class="_text" for="name">Название:</label>
+                <input class="_input" type="text" id="name" name="name" th:placeholder="${modelObject.name}" required /><br>
+
+                <label class="_text" for="lessonsCount">Количество уроков:</label>
+                <input class="_input" type="text" id="lessonsCount" name="lessonsCount" th:placeholder="${modelObject.lessonsCount}" required /><br>
+
+                <label class="_text" for="cost">Стоимость:</label>
+                <input class="_input" type="number" id="cost" name="cost" th:placeholder="${modelObject.cost}" required /><br>
+
+                <label class="_text" for="image">Изображение:</label>
+                <input class="_input" type="text" id="image" name="image" th:placeholder="${modelObject.image}" required /><br>
+
+                <!-- Кнопка для добавления элемента в модель -->
+                <button class="_button" type="submit">Изменить</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

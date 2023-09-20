@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <link type="text/css" href="../../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+<header class="_header">
+    <div class="_header_container">
+        <div class="_header_image_container">
+            <a href="https://vk.com/balashiha_neshkola">
+                <img class="_img_header" src="https://avatars.mds.yandex.net/i?id=9d4f6605296093f1fb19e74d948ca099_l-8258224-images-thumbs&n=13" alt=""/>
+            </a>
+        </div>
+        <div class="_header_list_container">
+            <a th:href="@{/}" class="_pages_list" id="page1">Главная</a>
+            <a type="submit" class="_pages_list" id="page2">Мои курсы</a>
+            <a class="_pages_list" id="page3">Профиль</a>
+            <a href="/logout" class="_pages_list" id="page4">Выход</a>
+        </div>
+    </div>
+    <div class="_div_header _rec"></div>
+</header>
+</body>

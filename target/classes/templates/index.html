@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Passion+One&display=swap" rel="stylesheet">
+
+    <link type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet">
+
+    <div th:insert="blocks/header" ></div>
+
+    <title>Курсы</title>
+</head>
+<body>
+    <div class="page">
+        <h1 class="_title">Курсы</h1>
+        <div class="_div _rec"></div>
+        <div class="_courses_container">
+            <div th:each="course : ${courses}" class="_rec_container _container">
+                <div class="_img_container">
+                    <img th:src="${course.image}" alt=""/>
+                </div>
+                <div class="_div_block _rec"></div>
+                <p class="_subtitle" th:text="${course.name}">Название курса</p>
+                <div class="_div_block _rec"></div>
+                <p class="_text" th:text="${course != null ? course.getCourseDuration().getDuration() : 'N/A'}">Продолжительность курса</p>
+                <p class="_text _cost" th:text="${course.cost} + ' ₽'">0.0 Р</p>
+
+            </div>
+        </div>
+        <div class="_div _rec"></div>
+
+    </div>
+</body>
+</html>

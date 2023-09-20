@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Passion+One&display=swap" rel="stylesheet">
+
+    <link type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet">
+
+    <title>Показ элементов</title>
+</head>
+<body>
+<div class="page">
+    <div th:if="${modelName == 'course'}">
+        <div class="_subtitle">Курс:</div>
+        <div class="_text_container _container">
+            <p class="_text">Название: <span th:text="${modelObject.name}"></span></p>
+            <p class="_text">Количество уроков: <span th:text="${modelObject.lessonsCount}"></span></p>
+            <p class="_text">Стоимость: <span th:text="${modelObject.cost}"></span></p>
+            <p class="_text">Изображение: <span th:text="${modelObject.image}"></span></p>
+
+            <a class="_button" th:href="@{'/edit/course/{id}'(id=${modelObject.id})}">Edit</a>
+
+
+            <form th:action="@{/delete}" method="post" th:object="${modelObject}">
+                <input type="hidden" th:name="modelName" th:value="${modelName}" />
+                <input type="hidden" th:name="id" name="id" th:value="${modelObject.id}" />
+                <button class="_button" type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
